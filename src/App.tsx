@@ -1,26 +1,28 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SignIn from './pages/SignIn';
+import ChatRoom from './pages/ChatRoom';
+import SignOut from './pages/SignOut';
 
 function App() {
+  /// check if user is logged in
+  const user = null;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>A Cool Chat App</h1>
+        <SignOut />
       </header>
+
+      <section>
+        {user ? <ChatRoom /> : <SignIn />}
+      </section>
+
     </div>
   );
 }
+
 
 export default App;
